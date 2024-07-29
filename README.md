@@ -1,7 +1,5 @@
 # hng_boilerplate_golang_web
 
-The provided README content is well-structured and includes detailed steps for deploying the `hng_boilerplate_golang_web` application using Ansible on an Ubuntu EC2 instance. Here are some minor adjustments and improvements to ensure compatibility with GitHub's markdown formatting and clarity:
-
 ```markdown
 # hng_boilerplate_golang_web
 
@@ -14,6 +12,35 @@ This procedure will guide you through deploying the `hng_boilerplate_golang_web`
 1. **AWS EC2 Instance:** Ubuntu 22.04 or later.
 2. **SSH Key Pair:** For accessing your EC2 instance.
 3. **Ansible Installed:** On your local machine or a control machine.
+
+### Installing Ansible
+
+To install Ansible on your local machine or control machine, follow these steps:
+
+1. **Update the package index:**
+   ```bash
+   sudo apt-get update
+   ```
+
+2. **Install the required dependencies:**
+   ```bash
+   sudo apt-get install software-properties-common
+   ```
+
+3. **Add the Ansible PPA (Personal Package Archive):**
+   ```bash
+   sudo add-apt-repository --yes --update ppa:ansible/ansible
+   ```
+
+4. **Install Ansible:**
+   ```bash
+   sudo apt-get install ansible
+   ```
+
+5. **Verify the installation:**
+   ```bash
+   ansible --version
+   ```
 
 ### Steps to Deploy the Application
 
@@ -262,7 +289,9 @@ This procedure will guide you through deploying the `hng_boilerplate_golang_web`
            proxy_set_header Host $host;
            proxy_set_header X-Real-IP $remote_addr;
            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
+           proxy_set_header
+
+ X-Forwarded-Proto $scheme;
        }
 
        error_log /var/log/stage_5b/error.log;
@@ -281,9 +310,7 @@ This procedure will guide you through deploying the `hng_boilerplate_golang_web`
 #### Step 4: Verify the Deployment
 
 1. **Check Application Status:**
-   SSH into your EC2 instance and check if the
-
- application is running on port 3000.
+   SSH into your EC2 instance and check if the application is running on port 3000.
 
    ```bash
    ssh -i /path/to/your-key-pair.pem ubuntu@your-ec2-public-ip
@@ -388,4 +415,4 @@ This procedure will guide you through deploying the `hng_boilerplate_golang_web`
    Open a web browser and navigate to `http://your-ec2-public-ip`.
 ```
 
-This README is compatible with GitHub and provides clear and detailed steps for deploying the application using Ansible. It includes instructions for setting up the EC2 instance, preparing the Ansible playbook, running the playbook, and verifying the deployment. Additionally, it provides troubleshooting steps for common issues.
+This README now includes the steps to install Ansible and provides clear and detailed instructions for deploying the application using Ansible on an Ubuntu EC2 instance.
